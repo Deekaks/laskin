@@ -12,7 +12,8 @@ esx = function(b)
 end
 
 --Tablet
-L = {first = 'Valitse plus, miinus tai jakolasku. (Vaihtoehtoisesti; potenssi, maksimi, abs.")'}
+C = {sal = 'Anna salasana'}
+L = {first = 'Valitse seuraavista: plus, miinus, jakolasku, potenssi, maksimi, abs.'}
 
 U = {sum = '\nPlus lasku valittu, kirjoita kaksi lukua yhdelle riville.', 
      sub = '\nMiinus lasku valittu, kirjoita kaksi lukua yhdelle riville.',
@@ -21,6 +22,20 @@ U = {sum = '\nPlus lasku valittu, kirjoita kaksi lukua yhdelle riville.',
      pow = '\nPotenssi lasku valittu, kirjoita kaksi lukua yhdelle riville. (Liian suuri luku palauttaa vain "inf")', 
      abs = '\nABS valittu, arvokkaampi syote tulostetaan.'}
 
+
+print(C.sal)
+io.write('Salasana: ')
+--Aloittaa salasanan pyynti loopin
+while (salasana ~= '1234') do
+    print('')
+    io.write('Salasana: ')
+    salasana = io.read()
+    --Jos syöte on "1234", looppi päättyy.
+    if salasana=="1234" then
+        os.execute('color f0')
+        print("Oikein ; ;")
+    end
+end
 print(L.first)
 
 --Ottaa inputin / string.lower hyväksyy pienet ja isot kirjaimet vastauksena
@@ -37,6 +52,7 @@ if input == "plus" then
     end
 
 elseif input == "miinus" then while(true) do 
+    os.execute('color 04')
     print(U.sub)
     local a, b = io.read("*n","*n")
     io.write("Vastaus: " .. (a - b))
